@@ -1,0 +1,11 @@
+stateAbreviation^|^AdditionalCSVvaluInfo^|^city^|^RequestBody^|^statusCode
+CA^|^AdditionalInfo1^|^Los Angeles^|^{"requestData": {"name": "John", "id": 1}}^|^200
+TX^|^AdditionalInfo2^|^Austin^|^{"requestData": {"name": "Mike", "id": 2}}^|^404
+NY^|^AdditionalInfo3^|^New York^|^{"requestData": {"name": "Sarah", "id": 3}}^|^503
+FL^|^AdditionalInfo4^|^Miami^|^{"requestData": {"name": "Emma", "id": 4}}^|^200
+GA^|^AdditionalInfo5^|^Atlanta^|^{"requestData": {"name": "Robert", "id": 5}}^|^429
+WA^|^AdditionalInfo6^|^Seattle^|^{"requestData": {"name": "Olivia", "id": 6}}^|^403
+IL^|^AdditionalInfo7^|^Chicago^|^{"requestData": {"name": "William", "id": 7}}^|^404
+PA^|^AdditionalInfo8^|^Philadelphia^|^{"requestData": {"name": "Sophia", "id": 8}}^|^500
+OH^|^AdditionalInfo9^|^Cleveland^|^{"requestData": {"name": "Jacob", "id": 9}}^|^504
+MI^|^AdditionalInfo10^|^Detroit^|^{"requestData": {"name": "Ava", "id": 10}}^|^200
