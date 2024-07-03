@@ -1,0 +1,11 @@
+address^|^AdditionalCSVvaluInfo^|^number^|^RequestBody^|^statusCode
+123 Main St^|^71^|^55667788^|^{"id":1,"name":"John","email":"john@example.com"}^|^200
+456 Market St^|^71^|^99887766^|^{"id":2,"name":"Jane","email":"jane@example.com"}^|^200
+789 Broadway Ave^|^71^|^11223344^|^{"id":3,"name":"Jim","email":"jim@example.com"}^|^500
+345 Oak St^|^71^|^77889900^|^{"id":4,"name":"Jill","email":"jill@example.com"}^|^404
+234 Pine Ave^|^71^|^22113355^|^{"id":5,"name":"Joan","email":"joan@example.com"}^|^400
+677 Maple St^|^71^|^55114422^|^{"id":6,"name":"Jerry","email":"jerry@example.com"}^|^403
+998 Birch Blvd^|^71^|^66991100^|^{"id":7,"name":"Jenny","email":"jenny@example.com"}^|^429
+337 Alder St^|^71^|^44335577^|^{"id":8,"name":"Jeff","email":"jeff@example.com"}^|^503
+669 Spruce Ave^|^71^|^22114455^|^{"id":9,"name":"Jack","email":"jack@example.com"}^|^504
+776 Cedar St^|^71^|^11002233^|^{"id":10,"name":"Julia","email":"julia@example.com"}^|^200
