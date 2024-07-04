@@ -1,0 +1,11 @@
+RequestBody^|^statusCode
+{"notification":{"customer":{"subscriberId":"SUB1234"},"serviceTest":{"id":"TEST123","type":"diagnostic","startDate":"2022-11-01","endDate":"2022-11-02","state":"IN_PROGRESS","diagnostic":{},"hintOperations":{},"result":{}}}}^|^204
+{"notification":{"customer":{"subscriberId":"SUB1235"},"serviceTest":{"id":"TEST124","type":"diagnostic","startDate":"2022-11-03","endDate":"2022-11-04","state":"FINISHED","diagnostic":{},"hintOperations":{},"result":{}}}}^|^400
+{"notification":{"customer":{"subscriberId":"SUB1236"},"serviceTest":{"id":"TEST125","type":"diagnostic","startDate":"2022-11-05","endDate":"2022-11-06","state":"NOT_FOUND","diagnostic":{},"hintOperations":{},"result":{}}}}^|^401
+{"notification":{"customer":{"subscriberId":"SUB1237"},"serviceTest":{"id":"TEST126","type":"diagnostic","startDate":"2022-11-07","endDate":"2022-11-08","state":"INTERNAL_FAULT","diagnostic":{},"hintOperations":{},"result":{}}}}^|^500
+{"notification":{"customer":{"subscriberId":"SUB1238"},"serviceTest":{"id":"TEST127","type":"diagnostic","startDate":"2022-11-09","endDate":"2022-11-10","state":"REJECTED","diagnostic":{},"hintOperations":{},"result":{}}}}^|^503
+{"notification":{"customer":{"subscriberId":"SUB1239"},"serviceTest":{"id":"TEST128","type":"diagnostic","startDate":"2022-11-11","endDate":"2022-11-12","state":"INVENTORY_FAULT","diagnostic":{},"hintOperations":{},"result":{}}}}^|^504
+{"notification":{"customer":{"subscriberId":"SUB1240"},"serviceTest":{"id":"TEST129","type":"diagnostic","startDate":"2022-11-13","endDate":"2022-11-14","state":"IN_PROGRESS","diagnostic":{},"hintOperations":{},"result":{}}}}^|^204
+{"notification":{"customer":{"subscriberId":"SUB1241"},"serviceTest":{"id":"TEST130","type":"diagnostic","startDate":"2022-11-15","endDate":"2022-11-16","state":"FINISHED","diagnostic":{},"hintOperations":{},"result":{}}}}^|^400
+{"notification":{"customer":{"subscriberId":"SUB1242"},"serviceTest":{"id":"TEST131","type":"diagnostic","startDate":"2022-11-17","endDate":"2022-11-18","state":"NOT_FOUND","diagnostic":{},"hintOperations":{},"result":{}}}}^|^401
+{"notification":{"customer":{"subscriberId":"SUB1243"},"serviceTest":{"id":"TEST132","type":"diagnostic","startDate":"2022-11-19","endDate":"2022-11-20","state":"INTERNAL_FAULT","diagnostic":{},"hintOperations":{},"result":{}}}}^|^500
