@@ -1,0 +1,11 @@
+RequestBody^|^statusCode
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s1"}}}^|^200
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s2"}}}^|^401
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s3"}}}^|^403
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s4"}}}^|^404
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s5"}}}^|^406
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s6"}}}^|^429
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s7"}}}^|^500
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s8"}}}^|^503
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s9"}}}^|^504
+{"serviceTest": {"type": "diagnostic", "customer": {"subscriberId": "s10"}}}^|^400
