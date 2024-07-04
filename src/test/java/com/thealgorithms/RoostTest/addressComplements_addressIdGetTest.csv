@@ -1,0 +1,11 @@
+addressId^|^AdditionalCSVvaluInfo^|^RequestBody^|^statusCode
+1^|^{"with complements":{"value": 14393}, "without complements":{"value": 24498}}^|^{"username": "user1", "password": "pass1"}^|^200
+2^|^{"with complements":{"value": 15312}, "without complements":{"value": 25456}}^|^{"username": "user2", "password": "pass2"}^|^403
+3^|^{"with complements":{"value": 16334}, "without complements":{"value": 26425}}^|^{"username": "user3", "password": "pass3"}^|^404
+4^|^{"with complements":{"value": 17370}, "without complements":{"value": 27412}}^|^{"username": "user4", "password": "pass4"}^|^429
+5^|^{"with complements":{"value": 18359}, "without complements":{"value": 28415}}^|^{"username": "user5", "password": "pass5"}^|^500
+6^|^{"with complements":{"value": 19342}, "without complements":{"value": 29428}}^|^{"username": "user6", "password": "pass6"}^|^503
+7^|^{"with complements":{"value": 20329}, "without complements":{"value": 30496}}^|^{"username": "user7", "password": "pass7"}^|^504
+8^|^{"with complements":{"value": 21334}, "without complements":{"value": 31436}}^|^{"username": "user8", "password": "pass8"}^|^200
+9^|^{"with complements":{"value": 22336}, "without complements":{"value": 32483}}^|^{"username": "user9", "password": "pass9"}^|^403
+10^|^{"with complements":{"value": 23376}, "without complements":{"value": 33445}}^|^{"username": "user10", "password": "pass10"}^|^404

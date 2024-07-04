@@ -1,0 +1,11 @@
+addressId^|^AdditionalCSVvaluInfo^|^RequestBody^|^statusCode
+1^|^{\"address with id\": {\"value\": 14393}}^|^{}^|^400
+2^|^{\"address with id\": {\"value\": 14394}}^|^{}^|^200
+3^|^{\"address with id\": {\"value\": 14395}}^|^{}^|^404
+4^|^{\"address with id\": {\"value\": 14396}}^|^{}^|^503
+5^|^{\"address with id\": {\"value\": 14397}}^|^{}^|^200
+6^|^{\"address with id\": {\"value\": 14398}}^|^{}^|^429
+7^|^{\"address with id\": {\"value\": 14399}}^|^{}^|^400
+8^|^{\"address with id\": {\"value\": 14400}}^|^{}^|^503
+9^|^{\"address with id\": {\"value\": 14401}}^|^{}^|^404
+10^|^{\"address with id\": {\"value\": 14402}}^|^{}^|^200
