@@ -48,6 +48,7 @@ Validation:
 */
 // ********RoostGPT********
 package com.thealgorithms.greedyalgorithms;
+import com.thealgorithms.greedyalgorithms.MinimizingLateness.Job;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
