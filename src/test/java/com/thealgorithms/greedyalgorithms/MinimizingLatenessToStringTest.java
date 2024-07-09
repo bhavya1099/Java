@@ -51,6 +51,7 @@ package com.thealgorithms.greedyalgorithms;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.thealgorithms.greedyalgorithms.MinimizingLateness.Job;
 import java.util.Arrays;
 import org.junit.jupiter.api.*;
 
@@ -62,11 +63,11 @@ public class MinimizingLatenessToStringTest {
 
 	@Test
 	public void testDefaultValuesToString() {
-		Job job = new Job();
-		job.jobName = null;
-		job.startTime = 0;
-		job.lateness = 0;
-		job.processingTime = 0;
+		Job job = new Job(null,0,0);
+		// job.jobName = null;
+		 job.startTime = 0;
+		 job.lateness = 0;
+		// job.processingTime = 0;
 
 		String actualOutput = job.toString();
 		String expectedOutput = "null, startTime: 0, endTime: 0, lateness: 0";
@@ -76,11 +77,11 @@ public class MinimizingLatenessToStringTest {
 
 	@Test
 	public void testTypicalValuesToString() {
-		Job job = new Job();
-		job.jobName = "Job1";
+		Job job = new Job("Job1",10,0);
+		//job.jobName = "Job1";
 		job.startTime = 5;
 		job.lateness = 0;
-		job.processingTime = 10;
+		//job.processingTime = 10;
 
 		String actualOutput = job.toString();
 		String expectedOutput = "Job1, startTime: 5, endTime: 15, lateness: 0";
@@ -90,11 +91,11 @@ public class MinimizingLatenessToStringTest {
 
 	@Test
 	public void testLatenessToString() {
-		Job job = new Job();
-		job.jobName = "Job1";
+		Job job = new Job("Job1",10,0);
+		//job.jobName = "Job1";
 		job.startTime = 5;
 		job.lateness = 15;
-		job.processingTime = 10;
+		//job.processingTime = 10;
 
 		String actualOutput = job.toString();
 		String expectedOutput = "Job1, startTime: 5, endTime: 15, lateness: 15";
@@ -104,11 +105,11 @@ public class MinimizingLatenessToStringTest {
 
 	@Test
 	public void testNegativeLatenessToString() {
-		Job job = new Job();
-		job.jobName = "Job1";
+		Job job = new Job("Job1",20,0);
+		//job.jobName = "Job1";
 		job.startTime = 10;
 		job.lateness = -5;
-		job.processingTime = 20;
+		//job.processingTime = 20;
 
 		String actualOutput = job.toString();
 		String expectedOutput = "Job1, startTime: 10, endTime: 30, lateness: -5";
