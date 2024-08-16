@@ -64,6 +64,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.thealgorithms.greedyalgorithms.MinimizingLateness.Job;
 import org.junit.jupiter.api.*;
 
 @Tag("com.thealgorithms.datastructures.buffers")
@@ -92,11 +93,11 @@ public class JobSequencingFindJobSequenceTest {
   @Tag("valid")
   public void testFindJobSequenceWithNormalInput() {
     ArrayList<Job> jobs = new ArrayList<Job>();
-    jobs.add(new Job('a', 2, 100));
-    jobs.add(new Job('b', 1, 19));
-    jobs.add(new Job('c', 2, 27));
-    jobs.add(new Job('d', 1, 25));
-    jobs.add(new Job('e', 3, 15));
+    jobs.add(new Job("a", 2, 100));
+    jobs.add(new Job("b", 1, 19));
+    jobs.add(new Job("c", 2, 27));
+    jobs.add(new Job("d", 1, 25));
+    jobs.add(new Job("e", 3, 15));
     String expectedOutcome = "Job Sequence: a -> c -> e";
     Assertions.assertEquals(expectedOutcome, jobSequencing.findJobSequence(jobs, jobs.size()));
   }
@@ -121,9 +122,9 @@ public class JobSequencingFindJobSequenceTest {
   @Tag("valid")
   public void testFindJobSequenceWithOverlappingDeadlines() {
     ArrayList<Job> jobs = new ArrayList<Job>();
-    jobs.add(new Job('a', 2, 27));
-    jobs.add(new Job('b', 1, 19));
-    jobs.add(new Job('c', 2, 25));
+    jobs.add(new Job("a", 2, 27));
+    jobs.add(new Job("b", 1, 19));
+    jobs.add(new Job("c", 2, 25));
     String expectedOutcome = "Job Sequence: a -> c";
     Assertions.assertEquals(expectedOutcome, jobSequencing.findJobSequence(jobs, jobs.size()));
   }
@@ -132,11 +133,11 @@ public class JobSequencingFindJobSequenceTest {
   @Tag("boundary")
   public void testFindJobSequenceWithJobListSizeGreaterArraySize() {
     ArrayList<Job> jobs = new ArrayList<Job>();
-    jobs.add(new Job('a', 2, 100));
-    jobs.add(new Job('b', 1, 19));
-    jobs.add(new Job('c', 2, 27));
-    jobs.add(new Job('d', 3, 15));
-    jobs.add(new Job('e', 4, 25));
+    jobs.add(new Job("a", 2, 100));
+    jobs.add(new Job("b", 1, 19));
+    jobs.add(new Job("c", 2, 27));
+    jobs.add(new Job("d", 3, 15));
+    jobs.add(new Job("e", 4, 25));
     String expectedOutcome = "Job Sequence: a -> c";
     Assertions.assertEquals(expectedOutcome, jobSequencing.findJobSequence(jobs, 2));
   }

@@ -40,6 +40,7 @@ Details:
 package com.thealgorithms.greedyalgorithms;
 
 import org.junit.jupiter.api.Test;
+import com.thealgorithms.greedyalgorithms.MinimizingLateness.Job;
 import org.junit.jupiter.api.Tag;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;

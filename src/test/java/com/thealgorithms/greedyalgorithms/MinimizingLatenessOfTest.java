@@ -51,6 +51,7 @@ package com.thealgorithms.greedyalgorithms;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import static org.junit.jupiter.api.Assertions.*;
+import com.thealgorithms.greedyalgorithms.MinimizingLateness.Job;
 import java.util.Arrays;
 import org.junit.jupiter.api.*;
 
@@ -65,7 +66,7 @@ public class MinimizingLatenessOfTest {
         int processingTime = 5;
         int deadline = 10;
         // Act
-        MinimizingLateness result = new MinimizingLateness(jobName, processingTime, deadline);
+        MinimizingLateness.Job result = new MinimizingLateness.Job(jobName, processingTime, deadline);
         // Assert
         assertEquals(jobName, result.jobName);
         assertEquals(processingTime, result.processingTime);
@@ -79,7 +80,7 @@ public class MinimizingLatenessOfTest {
         int processingTime = 5;
         int deadline = 10;
         // Act
-        MinimizingLateness result = new MinimizingLateness(jobName, processingTime, deadline);
+        MinimizingLateness.Job result = new MinimizingLateness.Job(jobName, processingTime, deadline);
         // Assert
         assertNull(result.jobName);
         assertEquals(processingTime, result.processingTime);
@@ -93,7 +94,7 @@ public class MinimizingLatenessOfTest {
         int processingTime = -5;
         int deadline = 10;
         // Act
-        MinimizingLateness result = new MinimizingLateness(jobName, processingTime, deadline);
+        MinimizingLateness.Job result = new MinimizingLateness.Job(jobName, processingTime, deadline);
         // Assert
         assertEquals(jobName, result.jobName);
         assertEquals(processingTime, result.processingTime);
@@ -107,7 +108,7 @@ public class MinimizingLatenessOfTest {
         int processingTime = 5;
         int deadline = 0;
         // Act
-        MinimizingLateness result = new MinimizingLateness(jobName, processingTime, deadline);
+        MinimizingLateness.Job result = new MinimizingLateness.Job(jobName, processingTime, deadline);
         // Assert
         assertEquals(jobName, result.jobName);
         assertEquals(processingTime, result.processingTime);
