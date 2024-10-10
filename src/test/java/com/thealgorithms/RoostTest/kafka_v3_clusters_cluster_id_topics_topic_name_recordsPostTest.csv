@@ -1,0 +1,11 @@
+0^|^1
+cluster_id1^|^{"partition_id":1,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:14:42Z"}
+cluster_id2^|^{"value":{"type":"STRING","data":"My message"}}
+cluster_id3^|^{"key":{"data":1000}}
+cluster_id4^|^{"partition_id":4,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:15:42Z"}
+cluster_id5^|^{"partition_id":5,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:16:42Z"}
+cluster_id6^|^{"partition_id":6,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:17:42Z"}
+cluster_id7^|^{"value":{"type":"STRING","data":"My message"}}
+cluster_id8^|^{"partition_id":8,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:18:42Z"}
+cluster_id9^|^{"partition_id":9,"headers":[{"name":"Header-1","value":"SGVhZGVyLTE="},{"name":"Header-2","value":"SGVhZGVyLTI="}],"key":{"type":"BINARY","data":"Zm9vYmFy"},"value":{"type":"JSON","data":{"foo":"bar"}},"timestamp":"2021-02-05T19:19:42Z"}
+cluster_id10^|^{"key":{"data":1000}}

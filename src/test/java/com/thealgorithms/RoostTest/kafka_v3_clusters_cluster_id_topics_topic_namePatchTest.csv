@@ -1,0 +1,12 @@
+0^|^1
+cluster_id^|^topic_name^|^partitions_count^|^statusCode
+cluster-01^|^topic-sales^|^5^|^200
+cluster-02^|^topic-marketing^|^3^|^400
+cluster-03^|^topic-finance^|^10^|^401
+cluster-04^|^topic-operations^|^7^|^403
+cluster-05^|^topic-admin^|^6^|^429
+cluster-06^|^topic-dev^|^8^|^200
+cluster-07^|^topic-test^|^4^|^5XX
+cluster-08^|^topic-production^|^9^|^200
+cluster-09^|^topic-hr^|^4^|^403
+cluster-10^|^topic-security^|^5^|^401

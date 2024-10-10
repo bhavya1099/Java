@@ -1,0 +1,11 @@
+cluster_id^|^statusCode
+cluster-1^|^200
+cluster-2^|^400
+cluster-3^|^401
+cluster-4^|^403
+cluster-5^|^429
+cluster-6^|^5XX
+cluster-7^|^200
+cluster-8^|^400
+cluster-9^|^401
+cluster-10^|^403
