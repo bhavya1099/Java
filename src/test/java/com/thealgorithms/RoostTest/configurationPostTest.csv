@@ -1,0 +1,11 @@
+RequestBody^|^statusCode
+{"configuration":{"action":{"type":"HGW_WIFI_ENABLE"},"id":"ID123","adminStatus":"1","startDate":"2023-01-01T00:00:00Z","endDate":"2023-01-02T00:00:00Z","state":"active"}}^|^200
+{"configuration":{"action":{"type":"HGW_WIFI_DISABLE"},"id":"ID124","adminStatus":"0","startDate":"2023-01-03T00:00:00Z","endDate":"2023-01-04T00:00:00Z","state":"inactive"}}^|^403
+{"configuration":{"action":{"type":"HGW_WIFI_SET_PASSWD"},"id":"ID125","adminStatus":"1","startDate":"2023-01-05T00:00:00Z","endDate":"2023-01-06T00:00:00Z","state":"active"}}^|^404
+{"configuration":{"action":{"type":"HGW_WIFI_CONFIGURATION"},"id":"ID126","adminStatus":"0","startDate":"2023-01-07T00:00:00Z","endDate":"2023-01-08T00:00:00Z","state":"inactive"}}^|^500
+{"configuration":{"action":{"type":"GPON_ONT_RESET"},"id":"ID127","adminStatus":"1","startDate":"2023-01-09T00:00:00Z","endDate":"2023-01-10T00:00:00Z","state":"active"}}^|^200
+{"configuration":{"action":{"type":"HGW_WIFI_ENABLE"},"id":"ID128","adminStatus":"0","startDate":"2023-01-11T00:00:00Z","endDate":"2023-01-12T00:00:00Z","state":"inactive"}}^|^503
+{"configuration":{"action":{"type":"HGW_WIFI_DISABLE"},"id":"ID129","adminStatus":"1","startDate":"2023-01-13T00:00:00Z","endDate":"2023-01-14T00:00:00Z","state":"active"}}^|^504
+{"configuration":{"action":{"type":"HGW_WIFI_SET_PASSWD"},"id":"ID130","adminStatus":"0","startDate":"2023-01-15T00:00:00Z","endDate":"2023-01-16T00:00:00Z","state":"inactive"}}^|^429
+{"configuration":{"action":{"type":"HGW_WIFI_CONFIGURATION"},"id":"ID131","adminStatus":"1","startDate":"2023-01-17T00:00:00Z","endDate":"2023-01-18T00:00:00Z","state":"active"}}^|^401
+{"configuration":{"action":{"type":"GPON_ONT_RESET"},"id":"ID132","adminStatus":"0","startDate":"2023-01-19T00:00:00Z","endDate":"2023-01-20T00:00:00Z","state":"inactive"}}^|^400
