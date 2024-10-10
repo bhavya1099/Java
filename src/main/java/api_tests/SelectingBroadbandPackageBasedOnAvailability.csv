@@ -1,0 +1,11 @@
+cluster_id^|^topic_name^|^statusCode^|^scenario
+1^|^EnvironmentalNews^|^200^|^ScenarioA
+2^|^TechUpdates^|^404^|^ScenarioB
+3^|^GlobalPolitics^|^503^|^ScenarioC
+4^|^HealthcareTips^|^200^|^ScenarioD
+5^|^FinanceNews^|^404^|^ScenarioE
+6^|^SportsEvents^|^200^|^ScenarioF
+7^|^EntertainmentBuzz^|^503^|^ScenarioG
+8^|^TravelGuides^|^200^|^ScenarioH
+9^|^EducationInsights^|^404^|^ScenarioI
+10^|^WorldNews^|^503^|^ScenarioJ

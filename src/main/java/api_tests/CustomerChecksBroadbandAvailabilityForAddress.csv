@@ -1,0 +1,11 @@
+subscriberID^|^addressID^|^statusCode^|^scenario
+1^|^1001^|^Active^|^ScenarioA
+2^|^1002^|^Pending^|^ScenarioB
+3^|^1003^|^Closed^|^ScenarioC
+4^|^1004^|^Active^|^ScenarioD
+5^|^1005^|^Pending^|^ScenarioE
+6^|^1006^|^Closed^|^ScenarioF
+7^|^1007^|^Active^|^ScenarioG
+8^|^1008^|^Pending^|^ScenarioH
+9^|^1009^|^Closed^|^ScenarioI
+10^|^1010^|^Active^|^ScenarioJ
