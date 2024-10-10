@@ -1,0 +1,6 @@
+actionType,frequencyBand,subscriberId,requestBody
+"HGW_WIFI_ENABLE","2.4GHz","SVTAL001","{""configuration"":{""action"":{""type"":""HGW_WIFI_ENABLE"",""parameters"":{""frequencyBand"":""2.4GHz""}},""customer"":{""subscriberId"":""SVTAL001""}}}"
+"HGW_WIFI_DISABLE","2.4GHz","SVTAL001","{""configuration"":{""action"":{""type"":""HGW_WIFI_DISABLE"",""parameters"":{""frequencyBand"":""2.4GHz""}},""customer"":{""subscriberId"":""SVTAL001""}}}"
+"HGW_WIFI_SET_PASSWD","2.4GHz","SVTAL001","{""configuration"":{""action"":{""type"":""HGW_WIFI_SET_PASSWD"",""parameters"":{""wifiIndex"":1,""passwd"":""cris621358"",""mode"":""WPAand11i""}},""customer"":{""subscriberId"":""SVTAL001""}}}"
+"HGW_WIFI_CONFIGURATION","5GHz","SVTAL001","{""configuration"":{""action"":{""type"":""HGW_WIFI_CONFIGURATION"",""parameters"":{""SSID"":""RMG2Go"",""broadcastSSID"":1,""wifiChannel"":1,""wifiIndex"":1,""mode"":""WPAand11i""}},""customer"":{""subscriberId"":""SVTAL001""}}}"
+"GPON_ONT_RESET","null","SVTAL001","{""configuration"":{""action"":{""type"":""GPON_ONT_RESET""},""customer"":{""subscriberId"":""SVTAL001""}}}"
