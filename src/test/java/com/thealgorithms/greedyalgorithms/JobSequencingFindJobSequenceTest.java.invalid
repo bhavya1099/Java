@@ -1,5 +1,3 @@
-This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -24,7 +22,6 @@ public void testJobSequencingWithExampleCase() {
     String jobSequence = JobSequencing.findJobSequence(jobs, jobs.size());
     assertEquals("Job Sequence: c -> a -> e", jobSequence);
 }
-""""
 Scenario 1: Job sequence when jobs array is empty
 
 Details:  
@@ -72,7 +69,8 @@ Execution:
   Assert: Expect the returned job sequence string to only contain the first 'size' jobs.
 Validation: 
   The assertion verifies that the method correctly handles a size parameter that is smaller than the jobs array size. This test is significant as it checks the method's error handling capabilities.
-"""
+
+roost_feedback [1/2/2025, 4:10:57 PM]:please remove the compilation errors of test, add appropriate imports to handle nested classes
 */
 
 // ********RoostGPT********
@@ -84,6 +82,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import org.junit.jupiter.api.*;
 import java.util.Arrays;
+
+// nested class to handle Job objects
+public static class Job {
+    char id;
+    int deadline, profit;
+
+    public Job(char id, int deadline, int profit) {
+        this.id = id;
+        this.deadline = deadline;
+        this.profit = profit;
+    }
+}
 
 public class JobSequencingFindJobSequenceTest {
     @Test
