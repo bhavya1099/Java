@@ -78,17 +78,20 @@ roost_feedback [1/3/2025, 10:57:46 AM]:please remove compilation errors and add 
 
 roost_feedback [1/3/2025, 11:02:48 AM]:please remove compilation errors and add appropriate imports for the nested classes
 
-roost_feedback [1/3/2025, 6:00:11 PM]:please remove compilation errors from code
+roost_feedback [1/3/2025, 6:03:43 PM]:please remove compilation errors in test code
 */
 
 // ********RoostGPT********
 
 package com.thealgorithms.greedyalgorithms;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JobSequencingFindJobSequenceTest {
 
@@ -112,11 +115,11 @@ public class JobSequencingFindJobSequenceTest {
             boolean[] slots = new boolean[size];
             char[] sequence = new char[size];
 
-            for (Job job : jobs) {
-                for (int j = Math.min(size, job.deadline) - 1; j >= 0; j--) {
+            for (int i = 0; i < size; i++) {
+                for (int j = Math.min(size, jobs.get(i).deadline) - 1; j >= 0; j--) {
                     if (!slots[j]) {
                         slots[j] = true;
-                        sequence[j] = job.id;
+                        sequence[j] = jobs.get(i).id;
                         break;
                     }
                 }
