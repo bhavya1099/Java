@@ -75,6 +75,8 @@ Validation:
 roost_feedback [1/3/2025, 10:13:59 AM]:please remove compilation errors and add appropriate imports for the nested classes
 
 roost_feedback [1/3/2025, 10:57:46 AM]:please remove compilation errors and add appropriate imports for the nested classes
+
+roost_feedback [1/3/2025, 11:02:48 AM]:please remove compilation errors and add appropriate imports for the nested classes
 */
 
 // ********RoostGPT********
@@ -84,9 +86,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class JobSequencingFindJobSequenceTest {
 
