@@ -78,7 +78,7 @@ roost_feedback [1/3/2025, 10:57:46 AM]:please remove compilation errors and add 
 
 roost_feedback [1/3/2025, 11:02:48 AM]:please remove compilation errors and add appropriate imports for the nested classes
 
-roost_feedback [1/3/2025, 6:03:43 PM]:please remove compilation errors in test code
+roost_feedback [1/3/2025, 6:06:51 PM]:please remove compilation errors from test code
 */
 
 // ********RoostGPT********
@@ -115,11 +115,11 @@ public class JobSequencingFindJobSequenceTest {
             boolean[] slots = new boolean[size];
             char[] sequence = new char[size];
 
-            for (int i = 0; i < size; i++) {
-                for (int j = Math.min(size, jobs.get(i).deadline) - 1; j >= 0; j--) {
+            for (Job job : jobs) {
+                for (int j = Math.min(size - 1, job.deadline - 1); j >= 0; j--) {
                     if (!slots[j]) {
                         slots[j] = true;
-                        sequence[j] = jobs.get(i).id;
+                        sequence[j] = job.id;
                         break;
                     }
                 }
