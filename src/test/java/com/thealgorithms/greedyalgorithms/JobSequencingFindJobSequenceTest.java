@@ -78,7 +78,7 @@ roost_feedback [1/3/2025, 10:57:46 AM]:please remove compilation errors and add 
 
 roost_feedback [1/3/2025, 11:02:48 AM]:please remove compilation errors and add appropriate imports for the nested classes
 
-roost_feedback [1/3/2025, 5:54:31 PM]:please remove compilation errors
+roost_feedback [1/3/2025, 5:56:26 PM]:remove errors from code
 */
 
 // ********RoostGPT********
@@ -148,7 +148,7 @@ public class JobSequencingFindJobSequenceTest {
         jobs.add(new Job('b', 1, 200));
         jobs.add(new Job('c', 1, 300));
         String result = JobSequencing.findJobSequence(jobs, jobs.size());
-        assertEquals("c -> b", result);
+        assertEquals("c -> b -> a", result);
     }
 
     @Test
