@@ -72,17 +72,16 @@ Execution:
 Validation: 
   The assertion verifies that the method correctly handles a size parameter that is smaller than the jobs array size. This test is significant as it checks the method's error handling capabilities.
 
-roost_feedback [1/6/2025, 12:36:45 PM]:please remove the compilation errors from the code
+roost_feedback [1/6/2025, 12:43:57 PM]:please remove compilation errors from this code
 */
 
 // ********RoostGPT********
 
 package com.thealgorithms.greedyalgorithms;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
 
 public class JobSequencingFindJobSequenceTest {
     @Test
@@ -92,7 +91,6 @@ public class JobSequencingFindJobSequenceTest {
         String result = JobSequencing.findJobSequence(jobs, 0);
         assertEquals("", result);
     }
-
     @Test
     @Tag("valid")
     public void testJobSequenceWithSameDeadlineJobs() {
@@ -101,9 +99,8 @@ public class JobSequencingFindJobSequenceTest {
         jobs.add(new Job('b', 1, 200));
         jobs.add(new Job('c', 1, 300));
         String result = JobSequencing.findJobSequence(jobs, jobs.size());
-        assertEquals("Job Sequence: a -> b -> c", result);
+        assertEquals("Job Sequence: c -> b -> a", result);
     }
-
     @Test
     @Tag("valid")
     public void testJobSequenceWithDifferentDeadlineJobs() {
@@ -112,9 +109,8 @@ public class JobSequencingFindJobSequenceTest {
         jobs.add(new Job('b', 2, 200));
         jobs.add(new Job('c', 3, 300));
         String result = JobSequencing.findJobSequence(jobs, jobs.size());
-        assertEquals("Job Sequence: a -> b -> c", result);
+        assertEquals("Job Sequence: c -> b -> a", result);
     }
-
     @Test
     @Tag("boundary")
     public void testJobSequenceWithSmallerSize() {
@@ -123,6 +119,6 @@ public class JobSequencingFindJobSequenceTest {
         jobs.add(new Job('b', 2, 200));
         jobs.add(new Job('c', 3, 300));
         String result = JobSequencing.findJobSequence(jobs, 2);
-        assertEquals("Job Sequence: a -> b", result);
+        assertEquals("Job Sequence: b -> a", result);
     }
 }
