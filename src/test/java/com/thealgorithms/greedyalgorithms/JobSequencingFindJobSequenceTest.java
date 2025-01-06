@@ -72,18 +72,17 @@ Execution:
 Validation: 
   The assertion verifies that the method correctly handles a size parameter that is smaller than the jobs array size. This test is significant as it checks the method's error handling capabilities.
 
-roost_feedback [1/6/2025, 12:17:07 PM]:please remove compilation errors, add appropriate import statement
+roost_feedback [1/6/2025, 12:36:45 PM]:please remove the compilation errors from the code
 */
 
 // ********RoostGPT********
 
 package com.thealgorithms.greedyalgorithms;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
-import com.thealgorithms.greedyalgorithms.Job;
-import com.thealgorithms.greedyalgorithms.JobSequencing;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JobSequencingFindJobSequenceTest {
     @Test
@@ -93,6 +92,7 @@ public class JobSequencingFindJobSequenceTest {
         String result = JobSequencing.findJobSequence(jobs, 0);
         assertEquals("", result);
     }
+
     @Test
     @Tag("valid")
     public void testJobSequenceWithSameDeadlineJobs() {
@@ -103,6 +103,7 @@ public class JobSequencingFindJobSequenceTest {
         String result = JobSequencing.findJobSequence(jobs, jobs.size());
         assertEquals("Job Sequence: a -> b -> c", result);
     }
+
     @Test
     @Tag("valid")
     public void testJobSequenceWithDifferentDeadlineJobs() {
@@ -113,6 +114,7 @@ public class JobSequencingFindJobSequenceTest {
         String result = JobSequencing.findJobSequence(jobs, jobs.size());
         assertEquals("Job Sequence: a -> b -> c", result);
     }
+
     @Test
     @Tag("boundary")
     public void testJobSequenceWithSmallerSize() {
