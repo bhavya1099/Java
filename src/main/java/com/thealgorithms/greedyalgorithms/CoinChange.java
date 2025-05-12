@@ -7,6 +7,7 @@ import java.util.Comparator;
 // Problem Link : https://en.wikipedia.org/wiki/Change-making_problem
 
 public final class CoinChange {
+    System.out.println("check value");
     private CoinChange() {
     }
     // Function to solve the coin change problem
