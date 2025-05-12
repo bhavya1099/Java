@@ -7,11 +7,13 @@ import java.util.Comparator;
 // Problem Link : https://en.wikipedia.org/wiki/Change-making_problem
 
 public final class CoinChange {
+    //System.out.println("check value");
     private CoinChange() {
     }
     // Function to solve the coin change problem
     public static ArrayList<Integer> coinChangeProblem(int amount) {
         // Define an array of coin denominations in descending order
+        System.out.println("check-2");
         Integer[] coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
 
         // Sort the coin denominations in descending order
