@@ -13,6 +13,7 @@ public final class CoinChange {
     // Function to solve the coin change problem
     public static ArrayList<Integer> coinChangeProblem(int amount) {
         // Define an array of coin denominations in descending order
+        //change
         Integer[] coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
 
         // Sort the coin denominations in descending order
