@@ -13,6 +13,7 @@ public final class CoinChange {
     public static ArrayList<Integer> coinChangeProblem(int amount) {
         // Define an array of coin denominations in descending order
         Integer[] coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+        System.out.println("check");
 
         // Sort the coin denominations in descending order
         Arrays.sort(coins, Comparator.reverseOrder());
