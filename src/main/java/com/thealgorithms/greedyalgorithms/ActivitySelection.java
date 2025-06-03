@@ -16,6 +16,7 @@ public final class ActivitySelection {
 
         // Create a 2D array to store activities and their start/end times.
         // Each row: [activity index, start time, end time]
+        System.out.println("Inside activity selection function");
 
         for (int i = 0; i < n; i++) {
             activities[i][0] = i; // Assign activity index
