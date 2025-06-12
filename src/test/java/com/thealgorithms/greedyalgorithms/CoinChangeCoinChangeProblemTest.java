@@ -78,6 +78,8 @@ public void testCoinChangeProblemWithZeroAmount() {
 
 .אימות: בדיקה זו מאמתת את היכולת של הפונקציה להתמודד עם קלט בלתי חוקי ולספק תוצאה ריקה כנדרש
 
+
+roost_feedback [12/06/2025, 4:11:48 PM]:להוסיף הערות מתאימות\n\n
 */
 
 // ********RoostGPT********
@@ -94,88 +96,66 @@ import java.util.Comparator;
 
 public class CoinChangeCoinChangeProblemTest {
 
-	@Test
-	@Tag("invalid")
-	public void coinChangeWithUnreachableAmount() {
-		// Prepare
-		int amount = -1; // Test with an invalid amount
-		ArrayList<Integer> expected = new ArrayList<>();
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("invalid")
+    public void coinChangeWithUnreachableAmount() {
+        int amount = -1;
+        ArrayList<Integer> expected = new ArrayList<>();
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("valid")
-	public void coinChangeWithExactAmount() {
-		// Prepare
-		int amount = 50; // Test with an amount that matches one coin directly
-		ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(50));
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("valid")
+    public void coinChangeWithExactAmount() {
+        int amount = 50;
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(50));
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("valid")
-	public void coinChangeWithMultipleCoins() {
-		// Prepare
-		int amount = 72; // Test with an amount requiring multiple coins
-		ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(50, 20, 2));
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("valid")
+    public void coinChangeWithMultipleCoins() {
+        int amount = 72;
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(50, 20, 2));
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("boundary")
-	public void coinChangeWithMinimumAmount() {
-		// Prepare
-		int amount = 1; // Test with the smallest valid amount
-		ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1));
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("boundary")
+    public void coinChangeWithMinimumAmount() {
+        int amount = 1;
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1));
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("boundary")
-	public void coinChangeWithLargeAmount() {
-		// Prepare
-		int amount = 3887; // Test with a large amount
-		ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2));
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("boundary")
+    public void coinChangeWithLargeAmount() {
+        int amount = 3887;
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2));
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("invalid")
-	public void coinChangeWithZeroAmount() {
-		// Prepare
-		int amount = 0; // Test with an amount of zero
-		ArrayList<Integer> expected = new ArrayList<>();
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
+    @Test
+    @Tag("invalid")
+    public void coinChangeWithZeroAmount() {
+        int amount = 0;
+        ArrayList<Integer> expected = new ArrayList<>();
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 
-	@Test
-	@Tag("valid")
-	public void coinChangeWithNonDivisibleAmount() {
-		// Prepare
-		int amount = 3; // Test with an amount not perfectly divisible by denominations
-		ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2, 1));
-		// Perform
-		ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
-		// Assert
-		assertEquals(expected, actual);
-	}
-
+    @Test
+    @Tag("valid")
+    public void coinChangeWithNonDivisibleAmount() {
+        int amount = 3;
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2, 1));
+        ArrayList<Integer> actual = CoinChange.coinChangeProblem(amount);
+        assertEquals(expected, actual);
+    }
 }
