@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -26,67 +24,72 @@ ROOST_METHOD_SIG_HASH=toString_bbffdadaa2
                                                                          אימות: 
 .מתן ערכים חוקיים לכל משתנה באובייקט Job אמור להוביל להצגת נתונים בפורמט הנכון. המטרה היא לוודא שהפונקציה ממומשת כהלכה ומחזירה את המידע כפי שמצופה
                                                                                 
+
+roost_feedback [12/06/2025, 2:01:43 PM]:הסרת שגיאות קומפילציה מהקבצים\n\n
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import org.junit.jupiter.api.Tag;
+
+package com.thealgorithms.greedyalgorithms;
+
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.*;
-import java.util.Arrays;
 
 public class JobToStringTest {
+
     @Test
     @Tag("valid")
     public void testValidJobDetails() {
         // Arrange
         MinimizingLateness.Job job = new MinimizingLateness.Job("Job1", 5, 10);
-        job.startTime = 0; // Correct logical setup based on business logic
-        job.lateness = 0;  // Correct logical setup
+        job.startTime = 0;
+        job.lateness = 0;
         // Act
         String actualOutput = job.toString();
         // Assert
         String expectedOutput = "Job1, startTime: 0, endTime: 5, lateness: 0";
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }
+
     @Test
     @Tag("boundary")
     public void testBoundaryCaseZeroProcessingTime() {
         // Arrange
         MinimizingLateness.Job job = new MinimizingLateness.Job("JobBoundary", 0, 10);
-        job.startTime = 5; // Correct logical setup based on business logic
-        job.lateness = 0;  // Correct logical setup
+        job.startTime = 5;
+        job.lateness = 0;
         // Act
         String actualOutput = job.toString();
         // Assert
         String expectedOutput = "JobBoundary, startTime: 5, endTime: 5, lateness: 0";
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }
+
     @Test
     @Tag("invalid")
     public void testInvalidJobDetailsWithNegativeValues() {
         // Arrange
         MinimizingLateness.Job job = new MinimizingLateness.Job("JobInvalid", -2, -5);
-        job.startTime = -10; // Modify this value based on invalid case setup
-        job.lateness = 0;    // Correct logical setup of lateness
+        job.startTime = -10;
+        job.lateness = 0;
         // Act
         String actualOutput = job.toString();
         // Assert
         String expectedOutput = "JobInvalid, startTime: -10, endTime: -12, lateness: 0";
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }
+
     @Test
     @Tag("integration")
     public void testIntegrationWithMinimizingLatenessAndJob() {
         // Arrange
         MinimizingLateness.Job job1 = new MinimizingLateness.Job("Job1", 4, 8);
         MinimizingLateness.Job job2 = new MinimizingLateness.Job("Job2", 8, 15);
-        // Calculate lateness logic needs accessibility in MinimizingLateness class
-        // Suggestion: Add public visibility for the calculateLateness method or equivalent enhancements in business logic.
-        job1.startTime = 0; // Setup logical initialization
-        job2.startTime = 4; // Setup logical initialization
-        job1.lateness = 0; // Correct lateness computation
-        job2.lateness = 0; // Correct lateness computation
+        job1.startTime = 0;
+        job2.startTime = 4;
+        job1.lateness = 0;
+        job2.lateness = 0;
         // Act
         String actualJob1Output = job1.toString();
         String actualJob2Output = job2.toString();
@@ -96,13 +99,14 @@ public class JobToStringTest {
         assertThat(actualJob1Output).isEqualTo(expectedJob1Output);
         assertThat(actualJob2Output).isEqualTo(expectedJob2Output);
     }
+
     @Test
     @Tag("boundary")
     public void testEdgeCaseForHighProcessingTime() {
         // Arrange
         MinimizingLateness.Job job = new MinimizingLateness.Job("JobHeavy", Integer.MAX_VALUE, 1000);
-        job.startTime = 50; // Logical initialization for edge case handling
-        job.lateness = (long) Integer.MAX_VALUE - 950; // Logical adjustment for boundary condition
+        job.startTime = 50;
+        job.lateness = (long) Integer.MAX_VALUE - 950;
         // Act
         String actualOutput = job.toString();
         // Assert
