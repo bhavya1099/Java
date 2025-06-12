@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -22,15 +20,20 @@ ROOST_METHOD_SIG_HASH=of_7a04d5363c
                                                                          אימות: 
 .אישור ש-Job שנוצר כולל את כל הפרטים הנכונים כפי שהועברו. זה משמעותי לווידוא תקינות יצירת האובייקטים בפונקציה הסטטית
                                                                                 
+
+roost_feedback [12/06/2025, 3:44:44 PM]:להסיר שגיאות קומפילציה\n\n
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import org.junit.jupiter.api.Test;
+
+package com.thealgorithms.greedyalgorithms;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.DisplayName;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import java.util.Arrays;
 
 public class JobOfTest {
     @Test
@@ -41,14 +44,17 @@ public class JobOfTest {
         String expectedJobName = "Job1";
         int expectedProcessingTime = 5;
         int expectedDeadline = 10;
+
         // Action
         MinimizingLateness.Job validJob = MinimizingLateness.Job.of(expectedJobName, expectedProcessingTime, expectedDeadline);
+
         // Verification
         assertNotNull(validJob, "Job object should not be null");
-        assertEquals((String)expectedJobName, validJob.jobName, "Job name should match the expected value");
-        assertEquals((int)expectedProcessingTime, validJob.processingTime, "Processing time should match the expected value");
-        assertEquals((int)expectedDeadline, validJob.deadline, "Deadline should match the expected value");
+        assertEquals(expectedJobName, validJob.jobName, "Job name should match the expected value");
+        assertEquals(expectedProcessingTime, validJob.processingTime, "Processing time should match the expected value");
+        assertEquals(expectedDeadline, validJob.deadline, "Deadline should match the expected value");
     }
+
     @Test
     @DisplayName("of method handles empty job name")
     @Tag("invalid")
@@ -57,48 +63,52 @@ public class JobOfTest {
         String emptyJobName = "";
         int expectedProcessingTime = 5;
         int expectedDeadline = 10;
+
         // Action
         MinimizingLateness.Job job = MinimizingLateness.Job.of(emptyJobName, expectedProcessingTime, expectedDeadline);
+
         // Verification
         assertNotNull(job, "Job object should not be null");
-        assertEquals((String)emptyJobName, job.jobName, "Job name should be empty");
-        assertEquals((int)expectedProcessingTime, job.processingTime, "Processing time should match the expected value");
-        assertEquals((int)expectedDeadline, job.deadline, "Deadline should match the expected value");
+        assertEquals(emptyJobName, job.jobName, "Job name should be empty");
+        assertEquals(expectedProcessingTime, job.processingTime, "Processing time should match the expected value");
+        assertEquals(expectedDeadline, job.deadline, "Deadline should match the expected value");
     }
+
     @Test
     @DisplayName("of method handles negative processing time")
     @Tag("invalid")
     public void ofMethodHandlesNegativeProcessingTime() {
-        // NOTE: Negative processing time edge case validity should be clarified in the business logic.
-        
         // Preparation
         String jobName = "Job2";
         int negativeProcessingTime = -5;
         int expectedDeadline = 10;
+
         // Action
         MinimizingLateness.Job job = MinimizingLateness.Job.of(jobName, negativeProcessingTime, expectedDeadline);
+
         // Verification
         assertNotNull(job, "Job object should not be null");
-        assertEquals((String)jobName, job.jobName, "Job name should match the expected value");
-        assertEquals((int)negativeProcessingTime, job.processingTime, "Processing time should match the negative value");
-        assertEquals((int)expectedDeadline, job.deadline, "Deadline should match the expected value");
+        assertEquals(jobName, job.jobName, "Job name should match the expected value");
+        assertEquals(negativeProcessingTime, job.processingTime, "Processing time should match the negative value");
+        assertEquals(expectedDeadline, job.deadline, "Deadline should match the expected value");
     }
+
     @Test
     @DisplayName("of method handles edge deadlines")
     @Tag("boundary")
     public void ofMethodHandlesEdgeDeadlines() {
-        // NOTE: Business logic should ensure handling of edge deadlines (e.g., zero or negative values).
-        
         // Preparation
         String jobName = "Job3";
         int expectedProcessingTime = 5;
         int edgeDeadline = 0;
+
         // Action
         MinimizingLateness.Job job = MinimizingLateness.Job.of(jobName, expectedProcessingTime, edgeDeadline);
+
         // Verification
         assertNotNull(job, "Job object should not be null");
-        assertEquals((String)jobName, job.jobName, "Job name should match the expected value");
-        assertEquals((int)expectedProcessingTime, job.processingTime, "Processing time should match the expected value");
-        assertEquals((int)edgeDeadline, job.deadline, "Deadline should match the edge value");
+        assertEquals(jobName, job.jobName, "Job name should match the expected value");
+        assertEquals(expectedProcessingTime, job.processingTime, "Processing time should match the expected value");
+        assertEquals(edgeDeadline, job.deadline, "Deadline should match the edge value");
     }
 }
