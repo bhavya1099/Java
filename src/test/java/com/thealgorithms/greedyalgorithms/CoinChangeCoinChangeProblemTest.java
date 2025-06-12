@@ -81,6 +81,8 @@ public void testCoinChangeProblemWithZeroAmount() {
                                                                                 
 
 roost_feedback [12/06/2025, 1:21:40 PM]:הסבר את התרחישים על ידי הוספת הערות מתאימות\n
+
+roost_feedback [12/06/2025, 2:05:04 PM]:הוסיפו הערות מתאימות לבדיקה\n\n
 */
 
 // ********RoostGPT********
@@ -103,7 +105,7 @@ public class CoinChangeCoinChangeProblemTest {
     public void coinChangeProblemWithNegativeAmount() {
         int negativeAmount = -50;
         ArrayList<Integer> result = CoinChange.coinChangeProblem(negativeAmount);
-        assertEquals(new ArrayList<>(), result);
+        assertEquals(new ArrayList<>(), result); // צפוי: רשימה ריקה עבור סכום שלילי
     }
 
     // תרחיש גבול: סכום אפס
@@ -112,7 +114,7 @@ public class CoinChangeCoinChangeProblemTest {
     public void coinChangeProblemWithZeroAmount() {
         int zeroAmount = 0;
         ArrayList<Integer> result = CoinChange.coinChangeProblem(zeroAmount);
-        assertEquals(new ArrayList<>(), result);
+        assertEquals(new ArrayList<>(), result); // צפוי: רשימה ריקה עבור סכום אפס
     }
 
     // תרחיש תקף: סכום שווה למטבע אחד
@@ -122,7 +124,7 @@ public class CoinChangeCoinChangeProblemTest {
         int amount = 10; 
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(10));
         ArrayList<Integer> result = CoinChange.coinChangeProblem(amount);
-        assertEquals(expected, result);
+        assertEquals(expected, result); // צפוי: רשימה שמכילה רק את המטבע התואם
     }
 
     // תרחיש תקף: סכום שמורכב ממספר מטבעות
@@ -132,7 +134,7 @@ public class CoinChangeCoinChangeProblemTest {
         int amount = 93; 
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(50, 20, 20, 2, 1));
         ArrayList<Integer> result = CoinChange.coinChangeProblem(amount);
-        assertEquals(expected, result);
+        assertEquals(expected, result); // צפוי: רשימה שמייצגת פירוק סכום למספר מטבעות
     }
 
     // תרחיש תקף: סכום גבוה 
@@ -142,7 +144,7 @@ public class CoinChangeCoinChangeProblemTest {
         int amount = 3876; 
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2000, 2000, 500, 200, 100, 50, 20, 5, 1));
         ArrayList<Integer> result = CoinChange.coinChangeProblem(amount);
-        assertEquals(expected, result);
+        assertEquals(expected, result); // צפוי: רשימה שמייצגת סכום גבוה עם פירוק מתאים
     }
 
     // תרחיש גבול: סכום שאינו חילוק למטבע אחד
@@ -152,6 +154,6 @@ public class CoinChangeCoinChangeProblemTest {
         int amount = 3; 
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2, 1));
         ArrayList<Integer> result = CoinChange.coinChangeProblem(amount);
-        assertEquals(expected, result);
+        assertEquals(expected, result); // צפוי: רשימה למטבעות קטנים שמרכיבים את הסכום
     }
 }
