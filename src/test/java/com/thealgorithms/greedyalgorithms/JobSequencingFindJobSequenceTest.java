@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -40,15 +38,19 @@ public void testJobSequencingWithExampleCase() {
                                                                         אימות:  
 .התוצאה מאמתת כי הפונקציה מתמודדת נכון עם רשימה ריקה ועדיין תסיים ללא חריגות או קריסה. זה חשוב עבור מקרים בהם אין עבודות זמינות לביצוע.
                                                                                 
+
+roost_feedback [12/06/2025, 1:52:49 PM]:הסרת שגיאות קומפילציה מהבדיקה\n\n
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import java.util.ArrayList;
+
+package com.thealgorithms.greedyalgorithms;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.*;
 
 public class JobSequencingFindJobSequenceTest {
     
@@ -66,58 +68,63 @@ public class JobSequencingFindJobSequenceTest {
             return otherJob.profit - this.profit;
         }
     }
+    
     @Test
     @Tag("invalid")
     public void jobSequenceWithEmptyList() {
-        ArrayList<JobSequencing.Job> jobs = new ArrayList<>();
+        ArrayList<JobSequencingFindJobSequenceTest.Job> jobs = new ArrayList<>();
         int size = 0;
         String expectedOutput = "Job Sequence: ";
         String actualOutput = JobSequencing.findJobSequence(jobs, size);
         assertEquals(expectedOutput, actualOutput);
     }
+
     @Test
     @Tag("valid")
     public void jobSequenceWithValidJobs() {
-        ArrayList<JobSequencing.Job> jobs = new ArrayList<>();
-        jobs.add(new JobSequencing.Job(1, 4, 20));
-        jobs.add(new JobSequencing.Job(2, 1, 10));
-        jobs.add(new JobSequencing.Job(3, 1, 40));
-        jobs.add(new JobSequencing.Job(4, 1, 30));
+        ArrayList<JobSequencingFindJobSequenceTest.Job> jobs = new ArrayList<>();
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(1, 4, 20));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(2, 1, 10));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(3, 1, 40));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(4, 1, 30));
         int size = 4;
         String expectedOutput = "Job Sequence: 3 -> 1";
         String actualOutput = JobSequencing.findJobSequence(jobs, size);
         assertEquals(expectedOutput, actualOutput);
     }
+
     @Test
     @Tag("boundary")
     public void jobSequenceWithSingleJob() {
-        ArrayList<JobSequencing.Job> jobs = new ArrayList<>();
-        jobs.add(new JobSequencing.Job(1, 1, 100));
+        ArrayList<JobSequencingFindJobSequenceTest.Job> jobs = new ArrayList<>();
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(1, 1, 100));
         int size = 1;
         String expectedOutput = "Job Sequence: 1";
         String actualOutput = JobSequencing.findJobSequence(jobs, size);
         assertEquals(expectedOutput, actualOutput);
     }
+
     @Test
     @Tag("boundary")
     public void jobSequenceWithJobDeadlineBeyondSize() {
-        ArrayList<JobSequencing.Job> jobs = new ArrayList<>();
-        jobs.add(new JobSequencing.Job(1, 6, 50));
-        jobs.add(new JobSequencing.Job(2, 3, 100));
+        ArrayList<JobSequencingFindJobSequenceTest.Job> jobs = new ArrayList<>();
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(1, 6, 50));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(2, 3, 100));
         int size = 5;
         String expectedOutput = "Job Sequence: 2 -> 1";
         String actualOutput = JobSequencing.findJobSequence(jobs, size);
         assertEquals(expectedOutput, actualOutput);
     }
+
     @Test
     @Tag("valid")
     public void jobSequenceWithMultipleJobsAndDeadlineConflicts() {
-        ArrayList<JobSequencing.Job> jobs = new ArrayList<>();
-        jobs.add(new JobSequencing.Job(1, 2, 100));
-        jobs.add(new JobSequencing.Job(2, 1, 19));
-        jobs.add(new JobSequencing.Job(3, 2, 27));
-        jobs.add(new JobSequencing.Job(4, 1, 25));
-        jobs.add(new JobSequencing.Job(5, 3, 15));
+        ArrayList<JobSequencingFindJobSequenceTest.Job> jobs = new ArrayList<>();
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(1, 2, 100));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(2, 1, 19));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(3, 2, 27));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(4, 1, 25));
+        jobs.add(new JobSequencingFindJobSequenceTest.Job(5, 3, 15));
         int size = 3;
         String expectedOutput = "Job Sequence: 1 -> 3 -> 5";
         String actualOutput = JobSequencing.findJobSequence(jobs, size);
