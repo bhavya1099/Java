@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -94,102 +92,109 @@ Validation:
   Ensures stability in handling extraordinarily large integer values without overflow or computational errors. Vital in foreseeing scalability limits of the application.  
 
 
+
+roost_feedback [03/07/2025, 10:10:38 AM]:remove\scompilation\serrors\sif\sany
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import org.junit.jupiter.api.Tag;
+
+package com.thealgorithms.greedyalgorithms;
+
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.*;
-import java.util.Arrays;
 
 public class JobOfTest {
     @Test
     @Tag("valid")
     public void createJobWithValidInputs() {
-        // Arrange
         String jobName = "Job A";
         int processingTime = 5;
         int deadline = 10;
-        // Act
+
         MinimizingLateness.Job job = new MinimizingLateness.Job(jobName, processingTime, deadline);
-        // Assert
-        assertEquals(jobName, (String) job.jobName, "Expected jobName mismatch");
-        assertEquals(processingTime, (int) job.processingTime, "Expected processingTime mismatch");
-        assertEquals(deadline, (int) job.deadline, "Expected deadline mismatch");
+
+        assertEquals(jobName, job.jobName, "Expected jobName mismatch");
+        assertEquals(processingTime, job.processingTime, "Expected processingTime mismatch");
+        assertEquals(deadline, job.deadline, "Expected deadline mismatch");
     }
+
     @Test
     @Tag("invalid")
     public void handleNegativeProcessingTime() {
-        // REQUIRES CHANGES: Business logic should validate and throw an exception for negative processingTime.
         String jobName = "Job B";
         int processingTime = -3;
         int deadline = 8;
+
         assertThrows(IllegalArgumentException.class, () -> {
             new MinimizingLateness.Job(jobName, processingTime, deadline);
         });
     }
+
     @Test
     @Tag("invalid")
     public void handleNegativeDeadline() {
-        // REQUIRES CHANGES: Business logic should validate and throw an exception for negative deadline.
         String jobName = "Job C";
         int processingTime = 4;
         int deadline = -1;
+
         assertThrows(IllegalArgumentException.class, () -> {
             new MinimizingLateness.Job(jobName, processingTime, deadline);
         });
     }
+
     @Test
     @Tag("invalid")
     public void createJobWithEmptyName() {
-        // REQUIRES CHANGES: Business logic should validate and throw an exception for empty job name.
-        String jobName = ""; // Empty name
+        String jobName = "";
         int processingTime = 7;
         int deadline = 15;
+
         assertThrows(IllegalArgumentException.class, () -> {
             new MinimizingLateness.Job(jobName, processingTime, deadline);
         });
     }
+
     @Test
     @Tag("valid")
     public void validateToStringFormatOfJobObject() {
-        // Arrange
         String jobName = "Job E";
         int processingTime = 6;
         int deadline = 12;
+
         MinimizingLateness.Job job = new MinimizingLateness.Job(jobName, processingTime, deadline);
-        // Act
+
         String expectedToString = "Job E, processingTime: 6, deadline: 12";
         String actualToString = job.toString();
-        // Assert
+
         assertEquals(expectedToString, actualToString, "Expected toString format mismatch");
     }
+
     @Test
     @Tag("invalid")
     public void createJobWithNullName() {
-        // Arrange
-        String jobName = null; // Null name
+        String jobName = null;
         int processingTime = 5;
         int deadline = 14;
-        // Act & Assert
+
         assertThrows(NullPointerException.class, () -> {
             new MinimizingLateness.Job(jobName, processingTime, deadline);
         });
     }
+
     @Test
     @Tag("boundary")
     public void createJobWithExtremeValueInputs() {
-        // Arrange
         String jobName = "Extreme Job";
         int processingTime = Integer.MAX_VALUE;
         int deadline = Integer.MAX_VALUE;
-        // Act
+
         MinimizingLateness.Job job = new MinimizingLateness.Job(jobName, processingTime, deadline);
-        // Assert
-        assertEquals(jobName, (String) job.jobName, "Expected jobName mismatch");
-        assertEquals(processingTime, (int) job.processingTime, "Expected processingTime mismatch");
-        assertEquals(deadline, (int) job.deadline, "Expected deadline mismatch");
+
+        assertEquals(jobName, job.jobName, "Expected jobName mismatch");
+        assertEquals(processingTime, job.processingTime, "Expected processingTime mismatch");
+        assertEquals(deadline, job.deadline, "Expected deadline mismatch");
     }
 }
+
