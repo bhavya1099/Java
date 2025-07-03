@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -202,10 +200,15 @@ Validation:
   Establishes how the method calculates lateness where processing time supersedes deadlines by design.  
 
 
+
+roost_feedback [03/07/2025, 8:47:12 AM]:if\sjob\sis\snested\sclass,\sthen\simport\sit\saccordingly
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import org.junit.jupiter.api.Test;
+
+package com.thealgorithms.greedyalgorithms;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
@@ -218,6 +221,7 @@ class MinimizingLatenessCalculateLatenessTest {
         int deadline;
         int startTime;
         int lateness;
+
         static Job of(String name, int processingTime, int deadline) {
             Job job = new Job();
             job.name = name;
@@ -228,28 +232,26 @@ class MinimizingLatenessCalculateLatenessTest {
             return job;
         }
     }
-    
+
     @Test
     @Tag("valid")
     public void verifySortingByDeadline() {
         Job job1 = Job.of("Job1", 3, 5);
         Job job2 = Job.of("Job2", 2, 3);
         Job job3 = Job.of("Job3", 4, 8);
-        Job[] jobs = {job1, job3, job2};
+        Job[] jobs = {job1, job2, job3};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert the jobs are sorted based on deadline
         assertArrayEquals(new Job[]{job2, job1, job3}, jobs);
     }
-    
+
     @Test
     @Tag("boundary")
     public void checkZeroProcessingTimeLateness() {
         Job job = Job.of("JobZero", 0, 2);
-        MinimizingLateness.calculateLateness(job);
-        // Assert lateness is zero for jobs with zero processing time
-        assertEquals(0, (int) job.lateness);
+        MinimizingLateness.calculateLateness(new Job[]{job});
+        assertEquals(0, job.lateness);
     }
-    
+
     @Test
     @Tag("valid")
     public void ensureDeadlinesMetNoLateness() {
@@ -258,21 +260,19 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job3 = Job.of("Job3", 1, 9);
         Job[] jobs = {job1, job2, job3};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert no lateness when deadlines are met
-        assertEquals(0, (int) jobs[0].lateness);
-        assertEquals(0, (int) jobs[1].lateness);
-        assertEquals(0, (int) jobs[2].lateness);
+        assertEquals(0, jobs[0].lateness);
+        assertEquals(0, jobs[1].lateness);
+        assertEquals(0, jobs[2].lateness);
     }
-    
+
     @Test
     @Tag("boundary")
     public void singleJobSchedulingValidation() {
         Job job = Job.of("SingleJob", 3, 5);
-        MinimizingLateness.calculateLateness(job);
-        // Assert lateness value
-        assertEquals(Math.max(0, (int)((job.processingTime + job.startTime) - job.deadline)), (int) job.lateness);
+        MinimizingLateness.calculateLateness(new Job[]{job});
+        assertEquals(Math.max(0, job.processingTime - job.deadline), job.lateness);
     }
-    
+
     @Test
     @Tag("valid")
     public void overlappingDeadlinesBehavior() {
@@ -281,12 +281,11 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job3 = Job.of("Job3", 2, 8);
         Job[] jobs = {job1, job2, job3};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert lateness values
         assertTrue(job1.lateness >= 0);
         assertTrue(job2.lateness >= 0);
         assertTrue(job3.lateness >= 0);
     }
-    
+
     @Test
     @Tag("integration")
     public void scalabilityForLargeJobCount() {
@@ -295,10 +294,9 @@ class MinimizingLatenessCalculateLatenessTest {
             jobs[i] = Job.of("Job" + i, i % 5 + 1, i * 2 + 10);
         }
         MinimizingLateness.calculateLateness(jobs);
-        // Assert no jobs with invalid lateness
         Arrays.stream(jobs).forEach(job -> assertTrue(job.lateness >= 0));
     }
-    
+
     @Test
     @Tag("boundary")
     public void checkEdgeDeadlineProcessingTimeCondition() {
@@ -306,11 +304,10 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job2 = Job.of("Job2", 5, 5);
         Job[] jobs = {job1, job2};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert lateness is zero when deadline equals processing time
-        assertEquals(0, (int) jobs[0].lateness);
-        assertEquals(0, (int) jobs[1].lateness);
+        assertEquals(0, jobs[0].lateness);
+        assertEquals(0, jobs[1].lateness);
     }
-    
+
     @Test
     @Tag("invalid")
     public void handleNegativeDeadlineValues() {
@@ -318,11 +315,10 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job2 = Job.of("Job2", 5, -7);
         Job[] jobs = {job1, job2};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert lateness values for negative deadlines
         assertTrue(job1.lateness >= 0);
         assertTrue(job2.lateness >= 0);
     }
-    
+
     @Test
     @Tag("boundary")
     public void zeroDeadlineValidation() {
@@ -330,11 +326,10 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job2 = Job.of("Job2", 5, 0);
         Job[] jobs = {job1, job2};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert lateness values for zero deadlines
         assertTrue(job1.lateness >= 0);
         assertTrue(job2.lateness >= 0);
     }
-    
+
     @Test
     @Tag("boundary")
     public void longProcessingTimeJobsHandling() {
@@ -342,8 +337,8 @@ class MinimizingLatenessCalculateLatenessTest {
         Job job2 = Job.of("Job2", 10, 5);
         Job[] jobs = {job1, job2};
         MinimizingLateness.calculateLateness(jobs);
-        // Assert lateness equals difference between processing time and deadline
-        assertEquals(Math.max(0, (int)(job1.startTime + job1.processingTime - job1.deadline)), (int) job1.lateness);
-        assertEquals(Math.max(0, (int)(job2.startTime + job2.processingTime - job2.deadline)), (int) job2.lateness);
+        assertEquals(Math.max(0, job1.startTime + job1.processingTime - job1.deadline), job1.lateness);
+        assertEquals(Math.max(0, job2.startTime + job2.processingTime - job2.deadline), job2.lateness);
     }
 }
+
