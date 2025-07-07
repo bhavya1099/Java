@@ -1,5 +1,3 @@
-//This test file is marked invalid as it contains compilation errors. Change the extension to of this file to .java, to manually edit its contents
-
 
 // ********RoostGPT********
 /*
@@ -22,10 +20,15 @@ Validation:
   Verify that the result correctly reflects sorting rules based on profit and ensures optimal sequence generation logic adheres to expected outputs.  
 
 
+
+roost_feedback [07/07/2025, 11:36:27 AM]:-\sAdd\smore\scomments\sto\sthe\stest
 */
 
 // ********RoostGPT********
-package com.thealgorithms.greedyalgorithms;import org.junit.jupiter.api.Test;
+
+package com.thealgorithms.greedyalgorithms;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,18 +36,19 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 public class JobCompareToTest {
+
     @Tag("valid")
     @Test
     @DisplayName("Compare jobs based on descending profits")
     public void compareJobsBasedOnProfit() {
-        // Arrange: Create jobs with varying profits using the available constructor
+        // Arrange: Create jobs with varying profits
         Job job1 = new Job('A', 2, 50);
         Job job2 = new Job('B', 2, 100);
         
-        // Act: Compare the two job profits
+        // Act: Compare profits of the two jobs
         int comparisonResult = job1.compareTo(job2);
         
-        // Assert: Verify that job2 (higher profit) is prioritized over job1
+        // Assert: Verify that job2 has higher priority due to higher profit
         assertTrue(comparisonResult > 0, "Job2 should have higher priority compared to Job1 based on profit.");
     }
     
@@ -52,24 +56,26 @@ public class JobCompareToTest {
     @Test
     @DisplayName("Compare jobs with equal profits")
     public void compareJobsWithEqualProfit() {
-        // Arrange: Create jobs with the same profit using the available constructor
+        // Arrange: Create two jobs with identical profit
         Job job1 = new Job('A', 2, 50);
         Job job2 = new Job('B', 3, 50);
         
-        // Act: Compare the two jobs
+        // Act: Perform the comparison operation
         int comparisonResult = job1.compareTo(job2);
         
-        // Assert: Verify that the comparison returns 0 for equal profits
+        // Assert: Check equality when profits are the same
         assertEquals(0, comparisonResult, "Jobs with equal profit should be considered equal in prioritization.");
     }
+
     @Tag("invalid")
     @Test
     @DisplayName("Verify handling of null job comparison")
     public void compareJobWithNull() {
-        // Arrange: Create one valid job and assign null to the other
+        // Arrange: Create one valid job while another is null
         Job job1 = new Job('A', 2, 50);
         Job job2 = null;
-        // Act & Assert: Ensure comparison with null throws NullPointerException
+        
+        // Act & Assert: Ensure NullPointerException is thrown when comparing with null
         assertThrows(NullPointerException.class, () -> job1.compareTo(job2), "NullPointerException should be thrown if otherJob is null.");
     }
     
@@ -77,12 +83,14 @@ public class JobCompareToTest {
     @Test
     @DisplayName("Compare jobs with higher deadline but lower profit")
     public void compareHigherDeadlineLowerProfit() {
-        // Arrange: Create jobs where one has a higher deadline but lower profit using the correct constructor
+        // Arrange: Create jobs with varying deadlines and profits
         Job job1 = new Job('A', 5, 50);
         Job job2 = new Job('B', 2, 100);
-        // Act: Compare the two job profits
+        
+        // Act: Perform the comparison based on profit
         int comparisonResult = job1.compareTo(job2);
-        // Assert: Verify that the job with higher profit is still prioritized regardless of deadline
+        
+        // Assert: Verify prioritization based on profit over deadline
         assertTrue(comparisonResult > 0, "Job2 (higher profit) should retain priority over Job1.");
     }
     
@@ -90,12 +98,15 @@ public class JobCompareToTest {
     @Test
     @DisplayName("Compare jobs with maximum and minimum profit values")
     public void compareJobsWithExtremeProfitValues() {
-        // Arrange: Create jobs with extreme profit values using the available constructor
+        // Arrange: Create jobs with extreme profit values
         Job job1 = new Job('A', 2, Integer.MAX_VALUE);
         Job job2 = new Job('B', 2, Integer.MIN_VALUE);
-        // Act: Compare the two jobs
+        
+        // Act: Perform the comparison
         int comparisonResult = job1.compareTo(job2);
-        // Assert: Ensure job1 with maximum profit is prioritized
+        
+        // Assert: Check prioritization when profits are at extreme values
         assertTrue(comparisonResult < 0, "Job1 (maximum profit) should have priority over Job2 with minimum profit.");
     }
 }
+
