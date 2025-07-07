@@ -126,6 +126,8 @@ Validation:
   Confirms adherence to business logic ensuring non-negative lateness in the final output.
 
 
+
+roost_feedback [07/07/2025, 10:29:05 AM]:-\sAdd\smore\scomments\sto\sthe\stest
 */
 
 // ********RoostGPT********
@@ -140,85 +142,82 @@ import java.util.Arrays;
 
 public class JobToStringTest {
 
-	@Test
-	@Tag("valid")
-	public void jobWithZeroLateness() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of("Job1", 5, 5);
-		MinimizingLateness.calculateLateness(job);
-		String expected = "Job1, startTime: 0, endTime: 5, lateness: 0";
-		assertEquals(expected, job.toString());
-	}
+    @Test
+    @Tag("valid")
+    public void jobWithZeroLateness() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of("Job1", 5, 5);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "Job1, startTime: 0, endTime: 5, lateness: 0";
+        assertEquals(expected, job.toString());
+    }
 
-	@Test
-	@Tag("valid")
-	public void jobWithPositiveLateness() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of("Job2", 5, 3);
-		MinimizingLateness.calculateLateness(job);
-		String expected = "Job2, startTime: 0, endTime: 5, lateness: 2";
-		assertEquals(expected, job.toString());
-	}
+    @Test
+    @Tag("valid")
+    public void jobWithPositiveLateness() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of("Job2", 5, 3);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "Job2, startTime: 0, endTime: 5, lateness: 2";
+        assertEquals(expected, job.toString());
+    }
 
-	@Test
-	@Tag("integration")
-	public void multipleJobProcessing() {
-		MinimizingLateness.Job job1 = MinimizingLateness.Job.of("Job1", 5, 6);
-		MinimizingLateness.Job job2 = MinimizingLateness.Job.of("Job2", 3, 7);
-		MinimizingLateness.Job job3 = MinimizingLateness.Job.of("Job3", 2, 8);
-		MinimizingLateness.calculateLateness(job1, job2, job3);
-		assertEquals("Job1, startTime: 0, endTime: 5, lateness: 0", job1.toString());
-		assertEquals("Job2, startTime: 5, endTime: 8, lateness: 1", job2.toString());
-		assertEquals("Job3, startTime: 8, endTime: 10, lateness: 2", job3.toString());
-	}
+    @Test
+    @Tag("integration")
+    public void multipleJobProcessing() {
+        MinimizingLateness.Job job1 = MinimizingLateness.Job.of("Job1", 5, 6);
+        MinimizingLateness.Job job2 = MinimizingLateness.Job.of("Job2", 3, 7);
+        MinimizingLateness.Job job3 = MinimizingLateness.Job.of("Job3", 2, 8);
+        MinimizingLateness.calculateLateness(job1, job2, job3);
 
-	@Test
-	@Tag("boundary")
-	public void jobWithZeroProcessingTime() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of("JobZero", 0, 5);
-		MinimizingLateness.calculateLateness(job);
-		String expected = "JobZero, startTime: 0, endTime: 0, lateness: 0";
-		assertEquals(expected, job.toString());
-	}
+        assertEquals("Job1, startTime: 0, endTime: 5, lateness: 0", job1.toString());
+        assertEquals("Job2, startTime: 5, endTime: 8, lateness: 1", job2.toString());
+        assertEquals("Job3, startTime: 8, endTime: 10, lateness: 2", job3.toString());
+    }
 
-	@Test
-	@Tag("valid")
-	public void stringRepresentationIncludesAllFields() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of("JobAllFields", 7, 10);
-		MinimizingLateness.calculateLateness(job);
-		String expected = "JobAllFields, startTime: 0, endTime: 7, lateness: 0";
-		assertEquals(expected, job.toString());
-	}
+    @Test
+    @Tag("boundary")
+    public void jobWithZeroProcessingTime() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of("JobZero", 0, 5);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "JobZero, startTime: 0, endTime: 0, lateness: 0";
+        assertEquals(expected, job.toString());
+    }
 
-	@Test
-	@Tag("integration")
-	public void overlappingDeadlinesHandling() {
-		MinimizingLateness.Job job1 = MinimizingLateness.Job.of("JobOverlap1", 4, 5);
-		MinimizingLateness.Job job2 = MinimizingLateness.Job.of("JobOverlap2", 6, 7);
-		MinimizingLateness.calculateLateness(job1, job2);
-		assertEquals("JobOverlap1, startTime: 0, endTime: 4, lateness: 0", job1.toString());
-		assertEquals("JobOverlap2, startTime: 4, endTime: 10, lateness: 3", job2.toString());
-	}
+    @Test
+    @Tag("valid")
+    public void stringRepresentationIncludesAllFields() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of("JobAllFields", 7, 10);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "JobAllFields, startTime: 0, endTime: 7, lateness: 0";
+        assertEquals(expected, job.toString());
+    }
 
-	@Test
-	@Tag("invalid")
-	public void handlingNullJobName() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of(null, 4, 5); // TODO:
-																			// Ensure this
-																			// value is
-																			// intentional
-																			// for the
-																			// test case
-		MinimizingLateness.calculateLateness(job);
-		String expected = "null, startTime: 0, endTime: 4, lateness: 0";
-		assertEquals(expected, job.toString());
-	}
+    @Test
+    @Tag("integration")
+    public void overlappingDeadlinesHandling() {
+        MinimizingLateness.Job job1 = MinimizingLateness.Job.of("JobOverlap1", 4, 5);
+        MinimizingLateness.Job job2 = MinimizingLateness.Job.of("JobOverlap2", 6, 7);
+        MinimizingLateness.calculateLateness(job1, job2);
 
-	@Test
-	@Tag("boundary")
-	public void ensuringNonNegativeLatenessValues() {
-		MinimizingLateness.Job job = MinimizingLateness.Job.of("JobNegative", 3, 0);
-		MinimizingLateness.calculateLateness(job);
-		String expected = "JobNegative, startTime: 0, endTime: 3, lateness: 3";
-		assertEquals(expected, job.toString());
-	}
+        assertEquals("JobOverlap1, startTime: 0, endTime: 4, lateness: 0", job1.toString());
+        assertEquals("JobOverlap2, startTime: 4, endTime: 10, lateness: 3", job2.toString());
+    }
 
+    @Test
+    @Tag("invalid")
+    public void handlingNullJobName() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of(null, 4, 5);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "null, startTime: 0, endTime: 4, lateness: 0";
+        assertEquals(expected, job.toString());
+    }
+
+    @Test
+    @Tag("boundary")
+    public void ensuringNonNegativeLatenessValues() {
+        MinimizingLateness.Job job = MinimizingLateness.Job.of("JobNegative", 3, 0);
+        MinimizingLateness.calculateLateness(job);
+        String expected = "JobNegative, startTime: 0, endTime: 3, lateness: 3";
+        assertEquals(expected, job.toString());
+    }
 }
+
