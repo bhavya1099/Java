@@ -52,6 +52,8 @@ Validation:
   This test ensures that the method can handle scenarios where not all items fully fit within the capacity and calculates total value accurately by including fractional parts of items. This is significant in validating the core functionality of the fractionalKnapsack method and its ability to maximize value efficiently.
 
 
+
+roost_feedback [07/07/2025, 11:29:17 AM]:-\sRemove\sthe\scomments\n-\sFormat\sthe\stest\n
 */
 
 // ********RoostGPT********
@@ -61,110 +63,98 @@ package com.thealgorithms.greedyalgorithms;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.*;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class FractionalKnapsackFractionalKnapsackTest {
 
-	@Test
-	@Tag("valid")
-	public void testFractionalValueCalculation() {
-		// Arrange
-		int[] weight = { 5, 10, 15 };
-		int[] value = { 30, 40, 45 };
-		int capacity = 20;
-		int expectedValue = 85;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Fractional value calculation does not match expected output");
-	}
+    @Test
+    @Tag("valid")
+    public void testFractionalValueCalculation() {
+        int[] weight = {5, 10, 15};
+        int[] value = {30, 40, 45};
+        int capacity = 20;
+        int expectedValue = 85;
 
-	@Test
-	@Tag("boundary")
-	public void testZeroCapacity() {
-		// Arrange
-		int[] weight = { 5, 10, 15 };
-		int[] value = { 30, 40, 45 };
-		int capacity = 0;
-		int expectedValue = 0;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Calculation failed for zero capacity");
-	}
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
 
-	@Test
-	@Tag("boundary")
-	public void testExactFitCapacity() {
-		// Arrange
-		int[] weight = { 5, 10, 15 };
-		int[] value = { 30, 40, 45 };
-		int capacity = 30; // Exact fit
-		int expectedValue = 115;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Calculation failed for exact capacity fit");
-	}
+        assertEquals(expectedValue, actualValue, "Fractional value calculation does not match expected output");
+    }
 
-	@Test
-	@Tag("valid")
-	public void testOverCapacityWithHighValueItems() {
-		// Arrange
-		int[] weight = { 10, 20, 30 };
-		int[] value = { 60, 100, 120 };
-		int capacity = 50;
-		int expectedValue = 220;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Calculation failed when over capacity with high-value items");
-	}
+    @Test
+    @Tag("boundary")
+    public void testZeroCapacity() {
+        int[] weight = {5, 10, 15};
+        int[] value = {30, 40, 45};
+        int capacity = 0;
+        int expectedValue = 0;
 
-	@Test
-	@Tag("invalid")
-	public void testEmptyArrays() {
-		// Arrange
-		int[] weight = {};
-		int[] value = {};
-		int capacity = 10;
-		int expectedValue = 0;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Handling empty arrays logic failed");
-	}
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
 
-	@Test
-	@Tag("boundary")
-	public void testSingleItemFits() {
-		// Arrange
-		int[] weight = { 10 };
-		int[] value = { 60 };
-		int capacity = 10; // Perfect fit for single item
-		int expectedValue = 60;
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Calculation failed for single item fit");
-	}
+        assertEquals(expectedValue, actualValue, "Calculation failed for zero capacity");
+    }
 
-	@Test
-	@Tag("boundary")
-	public void testSingleItemFraction() {
-		// Arrange
-		int[] weight = { 10 };
-		int[] value = { 60 };
-		int capacity = 5; // Partial fit
-		int expectedValue = 30; // Fractional value
-		// Act
-		int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
-		// Assert
-		assertEquals(expectedValue, actualValue, "Calculation failed for fractional value of single item");
-	}
-	// TODO: Add more test cases as necessary to cover additional edge and invalid
-	// scenarios
+    @Test
+    @Tag("boundary")
+    public void testExactFitCapacity() {
+        int[] weight = {5, 10, 15};
+        int[] value = {30, 40, 45};
+        int capacity = 30;
+        int expectedValue = 115;
 
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
+
+        assertEquals(expectedValue, actualValue, "Calculation failed for exact capacity fit");
+    }
+
+    @Test
+    @Tag("valid")
+    public void testOverCapacityWithHighValueItems() {
+        int[] weight = {10, 20, 30};
+        int[] value = {60, 100, 120};
+        int capacity = 50;
+        int expectedValue = 220;
+
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
+
+        assertEquals(expectedValue, actualValue, "Calculation failed when over capacity with high-value items");
+    }
+
+    @Test
+    @Tag("invalid")
+    public void testEmptyArrays() {
+        int[] weight = {};
+        int[] value = {};
+        int capacity = 10;
+        int expectedValue = 0;
+
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
+
+        assertEquals(expectedValue, actualValue, "Handling empty arrays logic failed");
+    }
+
+    @Test
+    @Tag("boundary")
+    public void testSingleItemFits() {
+        int[] weight = {10};
+        int[] value = {60};
+        int capacity = 10;
+        int expectedValue = 60;
+
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
+
+        assertEquals(expectedValue, actualValue, "Calculation failed for single item fit");
+    }
+
+    @Test
+    @Tag("boundary")
+    public void testSingleItemFraction() {
+        int[] weight = {10};
+        int[] value = {60};
+        int capacity = 5;
+        int expectedValue = 30;
+
+        int actualValue = FractionalKnapsack.fractionalKnapsack(weight, value, capacity);
+
+        assertEquals(expectedValue, actualValue, "Calculation failed for fractional value of single item");
+    }
 }
+
