@@ -23,6 +23,8 @@ Validation:
 
 
 roost_feedback [10/07/2025, 3:49:09 PM]:remvove compilation errors if any\n
+
+roost_feedback [10/07/2025, 4:12:52 PM]:remove compilation errors if any\n
 */
 
 // ********RoostGPT********
@@ -43,7 +45,7 @@ public class JobToStringTest {
         job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
         String actualOutput = job.toString();
         String expectedOutput = "Job1, startTime: 0, endTime: 5, lateness: 0";
-        Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format is incorrect.");
+        Assertions.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -54,8 +56,7 @@ public class JobToStringTest {
         job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
         String actualOutput = job.toString();
         String expectedOutput = "JobZero, startTime: 0, endTime: 0, lateness: 0";
-        Assertions.assertEquals(expectedOutput, actualOutput,
-                "The toString output format for boundary values is incorrect.");
+        Assertions.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -66,7 +67,7 @@ public class JobToStringTest {
         job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
         String actualOutput = job.toString();
         String expectedOutput = "LateJob, startTime: 0, endTime: 10, lateness: 5";
-        Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format for late jobs is incorrect.");
+        Assertions.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -77,8 +78,7 @@ public class JobToStringTest {
         job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
         String actualOutput = job.toString();
         String expectedOutput = "null, startTime: 0, endTime: 5, lateness: 0";
-        Assertions.assertEquals(expectedOutput, actualOutput,
-                "The toString output format for null jobName is incorrect.");
+        Assertions.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -94,10 +94,7 @@ public class JobToStringTest {
         String actualOutputJob2 = job2.toString();
         String expectedOutputJob1 = "Job1, startTime: 0, endTime: 3, lateness: 0";
         String expectedOutputJob2 = "Job2, startTime: 3, endTime: 7, lateness: 0";
-        Assertions.assertEquals(expectedOutputJob1, actualOutputJob1,
-                "The toString output format for Job1 is incorrect.");
-        Assertions.assertEquals(expectedOutputJob2, actualOutputJob2,
-                "The toString output format for Job2 is incorrect.");
+        Assertions.assertEquals(expectedOutputJob1, actualOutputJob1);
+        Assertions.assertEquals(expectedOutputJob2, actualOutputJob2);
     }
-
 }
