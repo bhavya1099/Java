@@ -21,115 +21,83 @@ Execution:
 Validation:
   Verify that the output string includes all relevant fields properly formatted. This test ensures the `toString` method adheres to the expected design, making the fields human-readable and precise for debugging or logging purposes.
 
+
+roost_feedback [10/07/2025, 3:49:09 PM]:remvove compilation errors if any\n
 */
 
 // ********RoostGPT********
+
 package com.thealgorithms.greedyalgorithms;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Assertions;
-import java.util.Arrays;
 
 public class JobToStringTest {
 
-	@Test
-	@Tag("valid")
-	public void verifyToStringOutputFormat() {
-		// Arrange
-		MinimizingLateness.Job job = new MinimizingLateness.Job("Job1", 5, 10);
-		job.startTime = 0; // Setting the appropriate startTime as per context
-		job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); // Calculating
-																							// lateness
-																							// manually
-		// Act
-		String actualOutput = job.toString();
-		// Assert
-		String expectedOutput = "Job1, startTime: 0, endTime: 5, lateness: 0";
-		Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format is incorrect.");
-	}
+    @Test
+    @Tag("valid")
+    public void verifyToStringOutputFormat() {
+        MinimizingLateness.Job job = new MinimizingLateness.Job("Job1", 5, 10);
+        job.startTime = 0; 
+        job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
+        String actualOutput = job.toString();
+        String expectedOutput = "Job1, startTime: 0, endTime: 5, lateness: 0";
+        Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format is incorrect.");
+    }
 
-	@Test
-	@Tag("boundary")
-	public void verifyToStringForZeroProcessingTimeAndDeadline() {
-		// Arrange
-		MinimizingLateness.Job job = new MinimizingLateness.Job("JobZero", 0, 0);
-		job.startTime = 0; // Setting the appropriate startTime as per context
-		job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); // Calculating
-																							// lateness
-																							// manually
-		// Act
-		String actualOutput = job.toString();
-		// Assert
-		String expectedOutput = "JobZero, startTime: 0, endTime: 0, lateness: 0";
-		Assertions.assertEquals(expectedOutput, actualOutput,
-				"The toString output format for boundary values is incorrect.");
-	}
+    @Test
+    @Tag("boundary")
+    public void verifyToStringForZeroProcessingTimeAndDeadline() {
+        MinimizingLateness.Job job = new MinimizingLateness.Job("JobZero", 0, 0);
+        job.startTime = 0; 
+        job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
+        String actualOutput = job.toString();
+        String expectedOutput = "JobZero, startTime: 0, endTime: 0, lateness: 0";
+        Assertions.assertEquals(expectedOutput, actualOutput,
+                "The toString output format for boundary values is incorrect.");
+    }
 
-	@Test
-	@Tag("boundary")
-	public void verifyToStringForLateJob() {
-		// Arrange
-		MinimizingLateness.Job job = new MinimizingLateness.Job("LateJob", 10, 5);
-		job.startTime = 0; // Setting the appropriate startTime as per context
-		job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); // Calculating
-																							// lateness
-																							// manually
-		// Act
-		String actualOutput = job.toString();
-		// Assert
-		String expectedOutput = "LateJob, startTime: 0, endTime: 10, lateness: 5";
-		Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format for late jobs is incorrect.");
-	}
+    @Test
+    @Tag("boundary")
+    public void verifyToStringForLateJob() {
+        MinimizingLateness.Job job = new MinimizingLateness.Job("LateJob", 10, 5);
+        job.startTime = 0; 
+        job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
+        String actualOutput = job.toString();
+        String expectedOutput = "LateJob, startTime: 0, endTime: 10, lateness: 5";
+        Assertions.assertEquals(expectedOutput, actualOutput, "The toString output format for late jobs is incorrect.");
+    }
 
-	@Test
-	@Tag("invalid")
-	public void verifyToStringForNullJobName() {
-		// Suggestion: Business logic needs improvement to handle null jobName gracefully.
-		// Arrange
-		MinimizingLateness.Job job = new MinimizingLateness.Job(null, 5, 10);
-		job.startTime = 0; // Setting the appropriate startTime as per context
-		job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); // Calculating
-																							// lateness
-																							// manually
-		// Act
-		String actualOutput = job.toString();
-		// Assert
-		String expectedOutput = "null, startTime: 0, endTime: 5, lateness: 0";
-		Assertions.assertEquals(expectedOutput, actualOutput,
-				"The toString output format for null jobName is incorrect.");
-	}
+    @Test
+    @Tag("invalid")
+    public void verifyToStringForNullJobName() {
+        MinimizingLateness.Job job = new MinimizingLateness.Job(null, 5, 10);
+        job.startTime = 0; 
+        job.lateness = Math.max(0, (job.startTime + job.processingTime) - job.deadline); 
+        String actualOutput = job.toString();
+        String expectedOutput = "null, startTime: 0, endTime: 5, lateness: 0";
+        Assertions.assertEquals(expectedOutput, actualOutput,
+                "The toString output format for null jobName is incorrect.");
+    }
 
-	@Test
-	@Tag("valid")
-	public void verifyToStringForMultipleJobs() {
-		// Arrange
-		MinimizingLateness.Job job1 = new MinimizingLateness.Job("Job1", 3, 5);
-		MinimizingLateness.Job job2 = new MinimizingLateness.Job("Job2", 4, 7);
-		job1.startTime = 0; // Setting the appropriate startTime for job1
-		job2.startTime = job1.startTime + job1.processingTime; // Calculating the
-																// startTime for job2
-																// based on job1
-		job1.lateness = Math.max(0, (job1.startTime + job1.processingTime) - job1.deadline); // Calculating
-																								// lateness
-																								// for
-																								// job1
-																								// manually
-		job2.lateness = Math.max(0, (job2.startTime + job2.processingTime) - job2.deadline); // Calculating
-																								// lateness
-																								// for
-																								// job2
-																								// manually
-		// Act
-		String actualOutputJob1 = job1.toString();
-		String actualOutputJob2 = job2.toString();
-		// Assert
-		String expectedOutputJob1 = "Job1, startTime: 0, endTime: 3, lateness: 0";
-		String expectedOutputJob2 = "Job2, startTime: 3, endTime: 7, lateness: 0";
-		Assertions.assertEquals(expectedOutputJob1, actualOutputJob1,
-				"The toString output format for Job1 is incorrect.");
-		Assertions.assertEquals(expectedOutputJob2, actualOutputJob2,
-				"The toString output format for Job2 is incorrect.");
-	}
+    @Test
+    @Tag("valid")
+    public void verifyToStringForMultipleJobs() {
+        MinimizingLateness.Job job1 = new MinimizingLateness.Job("Job1", 3, 5);
+        MinimizingLateness.Job job2 = new MinimizingLateness.Job("Job2", 4, 7);
+        job1.startTime = 0; 
+        job2.startTime = job1.startTime + job1.processingTime; 
+        job1.lateness = Math.max(0, (job1.startTime + job1.processingTime) - job1.deadline); 
+        job2.lateness = Math.max(0, (job2.startTime + job2.processingTime) - job2.deadline); 
+        String actualOutputJob1 = job1.toString();
+        String actualOutputJob2 = job2.toString();
+        String expectedOutputJob1 = "Job1, startTime: 0, endTime: 3, lateness: 0";
+        String expectedOutputJob2 = "Job2, startTime: 3, endTime: 7, lateness: 0";
+        Assertions.assertEquals(expectedOutputJob1, actualOutputJob1,
+                "The toString output format for Job1 is incorrect.");
+        Assertions.assertEquals(expectedOutputJob2, actualOutputJob2,
+                "The toString output format for Job2 is incorrect.");
+    }
 
 }
